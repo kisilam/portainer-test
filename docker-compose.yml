@@ -21,7 +21,7 @@ services:
       - 18081:80
     volumes:
       - ./test/:/opt/test/
-      - ./web:/web
+      - ~/web:/web
 
 
 
