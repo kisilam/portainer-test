@@ -13,15 +13,15 @@ services:
       - ./test:/opt/test
       - test-volume12:/var/log
 
-  resume12:
-    build:
-      context: .
-      dockerfile: ./Dockerfile
-    ports:
-      - 18081:80
-    volumes:
-      - /opt/portainer/compose/27/test:/opt/test/
-      - ./web:/web
+#  resume12:
+#    build:
+#      context: .
+#      dockerfile: ./Dockerfile
+#    ports:
+#      - 18081:80
+#    volumes:
+#      - /opt/portainer/compose/27/test:/opt/test/
+#      - ./web:/web
 
 
 
