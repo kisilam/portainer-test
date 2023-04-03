@@ -12,6 +12,17 @@ services:
       - ./test:/opt/test
       - test-volume12:/var/log
 
+  resume12:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 18081:80
+    volumes:
+      - ./test/:/opt/test/
+      - test-volume12:/var/log
+
+
 
 volumes:
    test-volume12: {}
