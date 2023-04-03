@@ -20,8 +20,8 @@ services:
     ports:
       - 18081:80
     volumes:
-      - ./test/:/opt/test/
-      - ~/web:/web
+      - /data/compose/27/test:/opt/test/
+      - ./web:/web
 
 
 
