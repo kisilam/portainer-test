@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My resume</title>
+</head>
+<body>
+    
+    <!-- Main div, page container -->
+    <div>
+        
+        <!--Sidebar-->
+        <aside>
+
+        </aside>
+        
+        <!--Right side -->
+        <div>
+            <h2>Front-End Developer</h2>
+            <h1>Andrii Kisil</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+            
+                <!--Project container-->
+                <div>
+                   <h2>Projects</h2>
+                   <ol>
+                        <li>
+                            https://lovecamp.goit.ua/
+                        </li> 
+                        <li>
+                            https://cryptohub.goit.ua/
+                        </li>
+                        <li>
+                            https://kidslike.goit.co.ua/
+                        </li>
+                    </ol>
+                </div>
+        </div>
+    </div>
+    
+</body>
+</html>
