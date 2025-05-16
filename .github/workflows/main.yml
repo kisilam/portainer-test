@@ -8,8 +8,13 @@ jobs:
   create_env_file_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Create .env file
-        uses: ozaytsev86/create-env-file@v1
-        with:
-          ENV_TEST_API_KEY: ${{ secrets.TEST_API_KEY }}
-          ENV_ANOTHER_KEY: ${{ secrets.ANOTHER_KEY }}
+      #- name: Create .env file
+      #  uses: ozaytsev86/create-env-file@v1
+      #  with:
+      #    ENV_TEST_API_KEY: ${{ secrets.TEST_API_KEY }}
+      #    ENV_ANOTHER_KEY: ${{ secrets.ANOTHER_KEY }}
+      - name: Run your script
+        run: |
+          GITHUB_COMMIT=${{ github.sha }}
+          echo $GITHUB_COMMIT
+          
