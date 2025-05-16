@@ -17,4 +17,6 @@ jobs:
         run: |
           GITHUB_COMMIT=${{ github.ref }}
           echo $GITHUB_COMMIT
+          GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c1-7)
+          echo $GITHUB_SHA_SHORT
           
