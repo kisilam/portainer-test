@@ -15,6 +15,6 @@ jobs:
       #    ENV_ANOTHER_KEY: ${{ secrets.ANOTHER_KEY }}
       - name: Run your script
         run: |
-          GITHUB_COMMIT=${{ github.sha }}
+          GITHUB_COMMIT=${{ github.ref }}
           echo $GITHUB_COMMIT
           
