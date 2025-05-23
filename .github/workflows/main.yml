@@ -19,11 +19,12 @@ jobs:
           echo $GITHUB_COMMIT
           GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c1-7)
           echo $GITHUB_SHA_SHORT
+          echo $GITHUB_SHA_SHORT >> $GITHUB_ENV
 
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
-        env: 
-          GITHUB_SHA_SHORT: $GITHUB_SHA_SHORT
+        #env: 
+        #  GITHUB_SHA_SHORT: $GITHUB_SHA_SHORT
         with:
           host: ${{ secrets.PROD_IP }}
           username: root
@@ -31,7 +32,7 @@ jobs:
           envs: GITHUB_SHA_SHORT
           script: |
             export GITHUB_SHA_SHORT=$GITHUB_SHA_SHORT
-            echo "GITHUB_SHA_SHORT: $GITHUB_SHA_SHORT"
+            echo "Github commit: $GITHUB_SHA_SHORT"
             echo $GITHUB_SHA_SHORT
             DIR=${WEB_DIR}/${GITHUB_SHA_SHORT}-`date -Isec`
             echo $DIR
