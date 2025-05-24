@@ -23,15 +23,17 @@ jobs:
 
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
-        #env: 
-        #  GITHUB_SHA_SHORT: $GITHUB_SHA_SHORT
+        env: 
+          GIT_HUB_PUB_KEYS: ${{ vars.GIT_HUB_PUB_KEYS }}
         with:
           host: ${{ secrets.PROD_IP }}
           username: root
           key: ${{ secrets.PROD_SERVER_KEY }}
-          envs: GITHUB_SHA_SHORT
+          envs: GITHUB_SHA_SHORT,GIT_HUB_PUB_KEYS
           script: |
             export GITHUB_SHA_SHORT=$GITHUB_SHA_SHORT
+            export GIT_HUB_PUB_KEYS=$GIT_HUB_PUB_KEYS
+            echo $GIT_HUB_PUB_KEYS > ~/github_pub_kes
             echo "Github commit: $GITHUB_SHA_SHORT"
             echo $GITHUB_SHA_SHORT
             DIR=${WEB_DIR}/${GITHUB_SHA_SHORT}-`date -Isec`
