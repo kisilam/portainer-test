@@ -7,6 +7,8 @@ on:
 jobs: 
   create_env_file_job:
     runs-on: ubuntu-latest
+    environment:
+      name: Production
     steps:
       #- name: Create .env file
       #  uses: ozaytsev86/create-env-file@v1
@@ -25,11 +27,13 @@ jobs:
         uses: appleboy/ssh-action@master
         env: 
           GIT_HUB_PUB_KEYS: ${{ vars.GIT_HUB_PUB_KEYS }}
+          MAIN_LOCAL_PHP: ${{ secrets.MAIN_LOCAL_PHP }}
+          PARAM_LOCAL_PHP: ${{ PARAM_LOCAL_PHP }}
         with:
           host: ${{ secrets.PROD_IP }}
           username: root
           key: ${{ secrets.PROD_SERVER_KEY }}
-          envs: GITHUB_SHA_SHORT,GIT_HUB_PUB_KEYS
+          envs: GITHUB_SHA_SHORT,GIT_HUB_PUB_KEYS,PARAM_LOCAL_PHP,MAIN_LOCAL_PHP
           script: |
             export GITHUB_SHA_SHORT=$GITHUB_SHA_SHORT
             export GIT_HUB_PUB_KEYS=$GIT_HUB_PUB_KEYS
@@ -38,4 +42,7 @@ jobs:
             echo $GITHUB_SHA_SHORT
             DIR=${WEB_DIR}/${GITHUB_SHA_SHORT}-`date -Isec`
             echo $DIR
-          
+            echo "${PARAM_LOCAL_PHP}" | base64 --decode > ~/params-local.php
+            cat ~/params-local.php
+            echo "${MAIN_LOCAL_PHP}" | base64 --decode > ~/main-local.php
+            cat ~/main-local.php
