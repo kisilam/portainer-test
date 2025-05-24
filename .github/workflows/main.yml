@@ -28,7 +28,7 @@ jobs:
         env: 
           GIT_HUB_PUB_KEYS: ${{ vars.GIT_HUB_PUB_KEYS }}
           MAIN_LOCAL_PHP: ${{ secrets.MAIN_LOCAL_PHP }}
-          PARAM_LOCAL_PHP: ${{ PARAM_LOCAL_PHP }}
+          PARAM_LOCAL_PHP: ${{ secrets.PARAM_LOCAL_PHP }}
         with:
           host: ${{ secrets.PROD_IP }}
           username: root
