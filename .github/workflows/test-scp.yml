@@ -1,0 +1,27 @@
+name: Prod CMS Deploy (No Registry)
+
+on:
+  workflow_dispatch: # The manual start Workflow
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: testcp
+    env:
+      DOCKER_IMAGE_NAME: payload-cms # Назва вашого Docker образу
+      #CONTAINER_NAME: your-app-container # Назва контейнера, який буде запущено
+      DOCKER_ARCHIVE_NAME: $DOCKER_IMAGE_NAME.tar # Ім'я архіву образу
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4 # get code from git repo
+
+    - name: Transfer Docker Archive to Server via SCP
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        source: ${{ env.DOCKER_ARCHIVE_NAME }},docker-compose-prod.yml 
+        target: ~/payload-cms-3
