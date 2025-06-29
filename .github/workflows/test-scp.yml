@@ -1,4 +1,4 @@
-name: Prod CMS Deploy (No Registry)
+name: TEST scp to remote host
 
 on:
   workflow_dispatch: # The manual start Workflow
@@ -23,5 +23,5 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        source: ${{ env.DOCKER_ARCHIVE_NAME }},docker-compose-prod.yml 
+        source: testFILE.txt 
         target: ~/payload-cms-3
