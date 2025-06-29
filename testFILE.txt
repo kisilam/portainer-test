@@ -1,0 +1,6 @@
+Apr 17, 2012: 
+We previously reported about Intel plans to launch several embedded microprocessors along with consumer 
+Ivy Bridge mobile parts, all based on not yet released Ivy Bridge (IVB) microarchitecture. 
+This quarter Intel will introduce Core i7-3610QE, i7-3612QE, i7-3615QE quad-cores, as well as Core i7-3517UE and i7-3555LE dual-core models. 
+Later this year we will see two embedded chips from Core i3 family, i3-3120ME and i3-3217UE. 
+Additionally, we learned that this quarter the company will offer new embedded Core i5-3610ME model.
