@@ -1,4 +1,4 @@
-name: TEST scp to remote host
+name: GET REPO name
 
 on:
   workflow_dispatch: # The manual start Workflow
