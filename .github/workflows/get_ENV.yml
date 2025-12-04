@@ -20,7 +20,7 @@ jobs:
     - name: Get repo name
       run: |
         echo "REPO_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)" >> $GITHUB_ENV
-        echo "IMAGE_D=${{ env.REPO_NAME}}.tar" >> $GITHUB_ENV
+        echo "IMAGE_D=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2).tar" >> $GITHUB_ENV
         echo "check is REPO_NAME has var"
         echo $REPO_NAME
         echo "REPO name is "
@@ -30,6 +30,10 @@ jobs:
         echo $REPO_NAME
         echo "repo name is all"
         echo $GITHUB_REPOSITORY
+
+        echo "try to get var from git environment"
+        echo ${{ env.REPO_NAME }}
+        echo ${{ env.IMAGE_D }}
 
     - name: Get var from previous step
       env:
