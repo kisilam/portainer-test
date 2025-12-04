@@ -20,6 +20,7 @@ jobs:
     - name: Get repo name
       run: |
         echo "REPO_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)" >> $GITHUB_ENV
+        echo "IMAGE_D=${{ env.REPO_NAME}}.tar" >> $GITHUB_ENV
         echo "check is REPO_NAME has var"
         echo $REPO_NAME
         echo "REPO name is "
@@ -33,5 +34,7 @@ jobs:
     - name: Get var from previous step
       env:
         DOCKER_IMAGE: ${{ env.REPO_NAME }}
+        IMAGE: ${{ env.IMAGE_D }}
       run: |
         echo $DOCKER_IMAGE
+        echo $IMAGE
