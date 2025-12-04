@@ -1,0 +1,24 @@
+name: TEST scp to remote host
+
+on:
+  workflow_dispatch: # The manual start Workflow
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: testcp
+#    env:
+#      DOCKER_IMAGE_NAME: payload-cms # Назва вашого Docker образу
+#      #CONTAINER_NAME: your-app-container # Назва контейнера, який буде запущено
+#      DOCKER_ARCHIVE_NAME: $DOCKER_IMAGE_NAME.tar # Ім'я архіву образу
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4 # get code from git repo
+
+    - name: Get repo name
+      run: |
+        echo "REPO_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)" >> $GITHUB_ENV
+        echo $GITHUB_ENV
+        echo $REPO_NAME
