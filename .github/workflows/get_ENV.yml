@@ -22,3 +22,5 @@ jobs:
         echo "REPO_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)" >> $GITHUB_ENV
         echo $GITHUB_ENV
         echo $REPO_NAME
+        echo "REPO name is "
+        echo "REPO_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)"
