@@ -42,3 +42,11 @@ jobs:
       run: |
         echo $DOCKER_IMAGE
         echo $IMAGE
+
+    - name: Get envfile from vars
+      run: |
+        echo "Try to get env file from var "
+        echo ${{ vars.ENV_FILE }} >> .env
+        echo "Showing results ......"
+        cat .env
+        echo "I hope all done ...."
