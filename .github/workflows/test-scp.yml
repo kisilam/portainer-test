@@ -19,9 +19,12 @@ jobs:
 
     - name: Transfer Docker Archive to Server via SCP
       uses: appleboy/scp-action@master
+      env:
+        DOCKER_IMAGE_USE: ${{ vars.DOCKER_IMAGE_USE }}
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        source: testFILE.txt 
-        target: ~/payload-cms-3
+        source: web/index.html
+        overwrite: true
+        target: ~/${{ env.DOCKER_IMAGE_USE }}
