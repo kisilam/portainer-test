@@ -27,4 +27,4 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         source: web/index.html
         overwrite: true
-        target: ~/${{ env.DOCKER_IMAGE_USE }}
+        target: ~/${{ env.DOCKER_IMAGE_USE }}.yml
