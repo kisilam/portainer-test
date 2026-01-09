@@ -25,6 +25,6 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        source: "./web/index.html"
+        source: web/index.html
         overwrite: true
-        target: ~/${{ env.DOCKER_IMAGE_USE }}.yml
+        target: ~/${{ env.DOCKER_IMAGE_USE }}
